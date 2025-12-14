@@ -1,0 +1,29 @@
+class Product {
+  constructor (product) {
+    this.id = product.id;
+    this.image = product.image;
+    this.name = product.name;
+    this.rating = product.rating;
+    this.priceCents = product.priceCents;
+    this.keywords = product.keywords;
+    this.type = '';
+  };
+};
+
+class Clothing extends Product {
+  constructor (product) {
+    super(product);
+    this.type = product.type;
+  };
+};
+
+export default async function loadProducts () {
+  try {
+    const fetchProducts = await fetch('https://supersimplebackend.dev/products').then(response => response.json());
+    const products = fetchProducts.map(v => v.type === 'clothing' ? new Clothing(v): new Product(v));
+
+    return products;
+  } catch (error) {
+    console.log ('Unexpected Error');
+  };
+};
