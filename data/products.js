@@ -20,7 +20,7 @@ class Clothing extends Product {
 export default async function loadProducts () {
   try {
     const fetchProducts = await fetch('https://supersimplebackend.dev/products').then(response => response.json());
-    fetchProducts.unshift({
+    fetchProducts.push({
       id: 'c63P-JBp3-bZ0A-b2Mf-vNvA',
       image: 'images/products/fleshlight.jpg',
       name: 'Fleshlight - Medium Dark Flesh',
