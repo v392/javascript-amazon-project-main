@@ -36,7 +36,7 @@ async function renderProductsGrid () {
 
             <div class="product-rating-container">
               <img class="product-rating-stars"
-                src="../images/ratings/rating-${rating.stars * 10}.png">
+                src="images/ratings/rating-${rating.stars * 10}.png">
               <div class="product-rating-count link-primary">
                 ${rating.count}
               </div>
@@ -119,4 +119,5 @@ async function renderProductsGrid () {
 };
 
 renderProductsGrid();
+
 handleSearchBar();
